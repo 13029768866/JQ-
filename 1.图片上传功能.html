@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<!-- 
+			accpect属性只使用在'type=file'的input 
+			accept="image/*",image后跟需要的图片格式
+		-->
+		<input class="file_input" id="file_photo" type="file" name="file_photo" accept="image/*" onchange="uploadImg({inpId:'file_photo'})" />
+		<img id="show_img" src="" height="200" alt="Image preview area..." title="preview-img">
+		<script src="js/jquery-2.2.4.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			/*	 var fileInput = document.querySelector('input[type=file]'),
+			          previewImg = document.querySelector('img');
+						fileInput.addEventListener('change', function() {
+							var file = this.files[0];
+							console.log(file)
+							var reader = new FileReader();
+							console.log(reader.result)
+							// 监听reader对象的的onload事件，当图片加载完成时，把base64编码賦值给预览图片
+							reader.addEventListener("load", function() {
+								console.log(reader.result)
+								previewImg.src = reader.result;
+			//					previewImg.attr('src','reader.result')
+							}, false);
+							// 调用reader.readAsDataURL()方法，把图片转成base64
+							reader.readAsDataURL(file);
+						}, false);*/
+
+			/*
+			 * 需要
+			 * 1、文件Inp_id,
+			 * 2、图片展示区域img_id
+			 */
+			function uploadImg(params) {				
+			
+				let imgId = $ ('#' + params.imgId)
+				$('#' + params.inpId).listener('load',function(){
+					let file = this.file[0]
+					console.log(file)
+				})
+			}
+
+		</script>
+	</body>
+
+</html>
